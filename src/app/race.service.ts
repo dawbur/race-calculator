@@ -58,7 +58,6 @@ export class RaceService {
         )
       );
     } else {
-      //tu jest cos zle bo wywala blad
       this.raceArray = this.raceArray.concat(
         this.fillTimes(inputArray[0], inputArray[length - 1], 1, raceLength)
       );
