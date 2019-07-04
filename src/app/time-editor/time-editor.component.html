@@ -1,0 +1,34 @@
+<div class="ui-g">
+  <form #timeForm="ngForm" autocomplete="off">
+    <div class="ui-g-6 ui-g-nopad">
+      <h3>Time</h3>
+      <p-inputMask
+        size="7"
+        [(ngModel)]="timeStr"
+        mask="99:a9.999"
+        [disabled]="disabled"
+        characterPattern="[0-5]"
+        required="true"
+        name="timeNgModel"
+        #timeInput
+        (onBlur)="isInputMaskFilled($event)"
+        autofocus
+      ></p-inputMask>
+    </div>
+
+    <div class="ui-g-3 ui-g-nopad">
+      <h3>Lap</h3>
+      <p-spinner
+        size="4"
+        [(ngModel)]="lap"
+        [min]="1"
+        [max]="maxLap"
+        [disabled]="disabled"
+        required="true"
+        name="lapNgModel"
+        pKeyFilter="int"
+      >
+      </p-spinner>
+    </div>
+  </form>
+</div>

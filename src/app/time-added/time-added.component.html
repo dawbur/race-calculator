@@ -1,0 +1,17 @@
+<div class="ui-g main">
+  <div class="ui-g-8">
+    <h4>lap: {{ lapInfo.lap }}</h4>
+    <h4>time: {{ lapInfo.getTimeAsString() }}</h4>
+  </div>
+
+  <div class="ui-g-4 delete-button">
+    <button
+      pButton
+      type="button"
+      class="ui-button-danger"
+      label="Delete"
+      (click)="handleClickDelete($event)"
+      style="height:33px;"
+    ></button>
+  </div>
+</div>

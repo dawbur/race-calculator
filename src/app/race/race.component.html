@@ -1,0 +1,18 @@
+<div *ngIf="!disabled">
+  <p-table [value]="raceArray">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Lap</th>
+        <th>Time</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-lapInfo>
+      <tr>
+        <td>{{ lapInfo.lap }}</td>
+        <td>{{ lapInfo.getTimeAsString() }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <app-line-chart></app-line-chart>
+  <h3>Total Race Time: {{ totalRaceTime }}</h3>
+</div>

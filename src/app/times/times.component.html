@@ -1,0 +1,77 @@
+<div *ngIf="!disabled" class="ui-g">
+  <div class="ui-g-8">
+    <div class="ui-g">
+      <div class="ui-g-4">
+        <h3>Race Length:</h3>
+
+        <p-spinner
+          class="ui-g"
+          size="5"
+          [(ngModel)]="raceLaps"
+          [min]="2"
+          placeholder="Laps"
+          [disabled]="proceeded"
+          pKeyFilter="int"
+        >
+        </p-spinner>
+      </div>
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-2">
+        <button
+          pButton
+          type="button"
+          class="ui-button-info"
+          label="Proceed"
+          (click)="handleClickProceed($event)"
+          [disabled]="proceeded"
+        ></button>
+      </div>
+    </div>
+
+    <div *ngIf="proceeded">
+      <div class="ui-g">
+        <div class="ui-g-6">
+          <app-time-editor
+            [maxLap]="raceLaps"
+            [previousLap]="previousLap"
+          ></app-time-editor>
+        </div>
+      </div>
+
+      <div class="ui-g">
+        <div class="ui-g-3">
+          <button
+            pButton
+            type="button"
+            class="ui-button-success"
+            label="Add Time"
+            (click)="handleClickAdd($event)"
+            [disabled]="addBtnDisabled()"
+          ></button>
+        </div>
+      </div>
+
+      <div class="ui-g">
+        <div class="ui-g-3">
+          <button
+            pButton
+            type="button"
+            class="ui-button-info"
+            label="Calculate"
+            (click)="handleClickCalculate($event)"
+            [disabled]="calculateBtnDisabled()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g-4">
+    <app-time-added
+      *ngFor="let lapInfo of lapInfos"
+      [lapInfo]="lapInfo"
+      (deletedLap)="onDeletedLap($event)"
+    ></app-time-added>
+  </div>
+</div>
